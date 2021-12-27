@@ -2,7 +2,9 @@
     "name": "sw5e-npc-importer",
     "title": "SW5e NPC Importer",
     "description": "Import monster and NPC statblocks for SW5e",
-    "version": "0.1.0",
+    "version": "0.4.0",
+    "minimumCoreVersion": "9.232",
+    "compatibleCoreVersion": "9.232",
     "author": "awitteck",
     "systems": [
         "sw5e"
@@ -17,7 +19,6 @@
         "./templates/sbiWindow.html"
     ],
     "url": "https://github.com/awitteck/sw5e-npc-importer",
-    "manifest": "https://github.com/awitteck/sw5e-npc-importer/raw/main/module.json",
-    "minimumCoreVersion": "9",
-    "compatibleCoreVersion": "9"
+    "manifest": "https://github.com/awitteck/sw5e-npc-importer/raw/main/module.json"
 }
+
