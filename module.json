@@ -1,11 +1,11 @@
 {
-    "name": "5e-statblock-importer",
-    "title": "5e Statblock Importer",
-    "description": "Import monster and NPC statblocks for D&D 5e",
+    "name": "sw5e-npc-importer",
+    "title": "SW5e NPC Importer",
+    "description": "Import monster and NPC statblocks for SW5e",
     "version": "1.2.4",
-    "author": "JHaywood",
+    "author": ["JHaywood", "awitteck"],
     "systems": [
-        "dnd5e"
+        "sw5e"
     ],
     "esmodules": [
         "./scripts/sbi.js"
@@ -16,9 +16,8 @@
     "templates": [
         "./templates/sbiWindow.html"
     ],
-    "url": "https://github.com/jbhaywood/5e-statblock-importer",
-    "manifest": "https://raw.githubusercontent.com/jbhaywood/5e-statblock-importer/main/module.json",
-    "download": "https://github.com/jbhaywood/5e-statblock-importer/archive/v1.2.4.zip",
+    "url": "https://github.com/awitteck/sw5e-npc-importer",
+    "manifest": "https://github.com/awitteck/sw5e-npc-importer/blob/main/module.json",
     "minimumCoreVersion": "0.8.0",
     "compatibleCoreVersion": "0.8.9"
 }

@@ -21,10 +21,10 @@ export class sbiParser {
     static #abilityNamesRegex = /\bstr\b|\bdex\b|\bcon\b|\bint\b|\bwis\b|\bcha\b/gi;
     static #abilityValuesRegex = /(?<base>\d+)\s?\((?<modifier>[\+|\-|−|–]\d+)\)/g;
     static #abilitySavesRegex = /(?<name>\bstr\b|\bdex\b|\bcon\b|\bint\b|\bwis\b|\bcha\b) (?<modifier>[\+|-]\d+)/ig;
-    static #skillsRegex = /(?<name>\bacrobatics\b|\barcana\b|\banimal handling\b|\bathletics\b|\bdeception\b|\bhistory\b|\binsight\b|\bintimidation\b|\binvestigation\b|\bmedicine\b|\bnature\b|\bperception\b|\bperformance\b|\bpersuasion\b|\breligion\b|\bsleight of hand\b|\bstealth\b|\bsurvival\b) (?<modifier>[\+|-]\d+)/ig;
+    static #skillsRegex = /(?<name>\bacrobatics\b|\blore\b|\banimal handling\b|\bathletics\b|\bdeception\b|\bpiloting\b|\binsight\b|\bintimidation\b|\binvestigation\b|\bmedicine\b|\bnature\b|\bperception\b|\bperformance\b|\bpersuasion\b|\btechnology\b|\bsleight of hand\b|\bstealth\b|\bsurvival\b) (?<modifier>[\+|-]\d+)/ig;
     static #damageTypesRegex = /\bbludgeoning\b|\bpiercing\b|\bslashing\b|\bacid\b|\bcold\b|\bfire\b |\blightning\b|\bnecrotic\b|\bpoison\b|\bpsychic\b|\bradiant\b|\bthunder\b|/ig;
     static #sensesRegex = /(?<name>\bdarkvision\b|\bblindsight\b|\btremorsense\b|\btruesight\b) (?<modifier>\d+)/i;
-    static #challengeRegex = /^challenge (?<cr>(½|[\d/]+)) \((?<xp>[\d,]+)/i;
+    static #challengeRegex = /^Challenge (?<cr>(½|[\d/]+)) \((?<xp>[\d,]+)/i;
     static #spellCastingRegex = /\((?<slots>\d+) slot|(?<perday>\d+)\/day|spellcasting ability is (?<ability>\w+)|spell save dc (?<savedc>\d+)/ig;
     static #spellLevelRegex = /(?<level>\d+)(.+)level spellcaster/i;
     static #attackRegex = /(attack|damage): \+(?<tohit>\d+) to hit/i;
@@ -278,7 +278,7 @@ export class sbiParser {
                     const armorNames = armorType.split(",").map(str => str.trim());
 
                     for (const armorName of armorNames) {
-                        const item = await sbiUtils.getFromPackAsync("dnd5e.items", armorName);
+                        const item = await sbiUtils.getFromPackAsync("sw5e.armor", armorName);
 
                         if (item) {
                             item.data.equipped = true;
@@ -607,31 +607,112 @@ export class sbiParser {
     // Example: Languages Common, Darakhul, Draconic, Elvish, Sylvan
     static async setLanguagesAsync(lines, actor) {
         const knownLanguages = [
-            "aarakocra",
-            "abyssal",
-            "aquan",
-            "auran",
-            "celestial",
-            "common",
-            "deep",
-            "draconic",
-            "druidic",
-            "dwarvish",
-            "elvish",
-            "giant",
-            "gith",
-            "gnoll",
-            "gnomish",
-            "goblin",
-            "halfling",
-            "ignan",
-            "infernal",
-            "orc",
-            "primordial",
-            "sylvan",
-            "terran",
-            "cant",
-            "undercommon"
+            "Abyssin",
+            "Aleena",
+            "Antarian",
+            "Anzellan",
+            "Aqualish",
+            "Arconese",
+            "Ardennian",
+            "Arkanian",
+            "Balosur",
+            "Barabel",
+            "Basic",
+            "Besalisk",
+            "Binary",
+            "Bith",
+            "Bocce",
+            "Bothese",
+            "Catharese",
+            "Cerean",
+            "Chadra-Fan",
+            "Chagri",
+            "Cheunh",
+            "Chevin",
+            "Chironan",
+            "Clawdite",
+            "Codruese",
+            "Colicoid",
+            "Dashadi",
+            "Defel",
+            "Devaronese",
+            "Dosh",
+            "Draethos",
+            "Dug",
+            "Durese",
+            "Ewokese",
+            "Falleen",
+            "Felucianese",
+            "Gamorrese",
+            "Gand",
+            "Geonosian",
+            "Givin",
+            "Gran",
+            "Gungan",
+            "Hapan",
+            "Harchese",
+            "Herglese",
+            "Honoghran",
+            "Huttese",
+            "Iktotchese",
+            "Ithorese",
+            "Jawaese",
+            "Kaleesh",
+            "Kaminoan",
+            "Karkaran",
+            "Kel Dor",
+            "Kharan",
+            "Killik",
+            "Klatooinian",
+            "Kubazian",
+            "Kushiban",
+            "Kyuzo",
+            "Lannik",
+            "Lasat",
+            "Lowickese",
+            "Lurmese",
+            "Mando'a",
+            "Miralukese",
+            "Mirialan",
+            "Mon Cal",
+            "Mustafarian",
+            "Muun",
+            "Nautila",
+            "Ortolan",
+            "Pak Pak",
+            "Pyke",
+            "Quarrenese",
+            "Rakata",
+            "Rattataki",
+            "Rishii",
+            "Rodese",
+            "Ryn",
+            "Selkatha",
+            "Semblan",
+            "Shistavanen",
+            "Shyriiwook",
+            "Sith",
+            "Squibbian",
+            "Sriluurian",
+            "Ssi-ruuvi",
+            "Sullustese",
+            "Talzzi",
+            "Tarasinese",
+            "Thisspiasian",
+            "Togorese",
+            "Togruti",
+            "Toydarian",
+            "Tusken",
+            "Twi'leki",
+            "Ugnaught",
+            "Umbaran",
+            "Utapese",
+            "Verpine",
+            "Vong",
+            "Voss",
+            "Yevethan",
+            "Zabraki",
+            "Zygerrian",
         ];
 
         const startText = "languages";
@@ -890,7 +971,7 @@ export class sbiParser {
             // Some spell casting description bury the spell in the description, like Mehpits.
             // Example: The mephit can innately cast fog cloud, requiring no material components.
             // In that case search the description for every known spell.
-            const spell = await sbiUtils.tryGetFromPackAsync("dnd5e.spells", description);
+            const spell = await sbiUtils.tryGetFromPackAsync("sw5e.forcepowers", description);
 
             if (spell) {
                 const perday = this.getGroupValue("perday", [...itemData.name.matchAll(this.#spellCastingRegex)]);
@@ -914,7 +995,7 @@ export class sbiParser {
         // Add spells to actor.
         if (spellDatas.length) {
             for (const spellData of spellDatas) {
-                const spell = await sbiUtils.getFromPackAsync("dnd5e.spells", spellData.name);
+                const spell = await sbiUtils.getFromPackAsync("sw5e.forcepowers", spellData.name);
 
                 if (spell) {
                     if (spellData.type == "slots") {
@@ -1094,7 +1175,7 @@ export class sbiParser {
                 }
             }
 
-            // We want to track the current line before going on to the next so that we can tell if a 
+            // We want to track th1e current line before going on to the next so that we can tell if a
             // match on the next action title is valid. We know it's a new block if the previous sentence 
             // ends with a period, meaning we didn't accidentally find text that looks like a title in 
             // the middle of a block, or if the new title is coming after an Innate Spellcasting or 
@@ -1247,20 +1328,18 @@ export class sbiParser {
                 return "acr";
             case "animal handling":
                 return "ani";
-            case "arcana":
-                return "arc";
             case "athletics":
                 return "ath";
             case "deception":
                 return "dec";
-            case "history":
-                return "his";
             case "insight":
                 return "ins";
             case "intimidation":
                 return "itm";
             case "investigation":
                 return "inv";
+            case "lore":
+                return "lor";
             case "medicine":
                 return "med";
             case "nature":
@@ -1271,14 +1350,16 @@ export class sbiParser {
                 return "prf";
             case "persuasion":
                 return "per";
-            case "religion":
-                return "rel";
+            case "piloting":
+                return "pil";
             case "sleight of hand":
                 return "slt";
             case "stealth":
                 return "ste";
             case "survival":
                 return "sur";
+            case "technology":
+                return "tec";
             default:
                 return skill;
         }

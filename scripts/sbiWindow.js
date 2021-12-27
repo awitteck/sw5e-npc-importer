@@ -11,7 +11,7 @@ export class sbiWindow extends Application {
     static get defaultOptions() {
         const options = super.defaultOptions;
         options.id = "sbi-window";
-        options.template = "modules/5e-statblock-importer/templates/sbiWindow.html";
+        options.template = "modules/sw5e-npc-importer/templates/sbiWindow.html";
         options.width = 800;
         options.height = 600;
         options.resizable = true;
@@ -47,7 +47,7 @@ export class sbiWindow extends Application {
                 try {
                     await sbiParser.parseInput(lines);
                 } catch (error) {
-                    ui.notifications.error("5E STATBLOCK IMPORTER: An error has occured. Please report it using the module link so it can get fixed.")
+                    ui.notifications.error("SW5E NPC IMPORTER: An error has occured. Please report it using the module link so it can get fixed.")
                 }
             }
         });
@@ -57,57 +57,31 @@ export class sbiWindow extends Application {
         // ###############################
         if (sbiConfig.options.debug) {
             const linesToAdd = [
-                "Djinni",
-                "Large elemental, chaotic good",
-                "Armor Class 17 (natural armor)",
-                "Hit Points 161 (14d10 + 84)",
-                "Speed 30 ft., fly 90 ft.",
-                "STR",
-                "DEX",
-                "CON",
-                "INT",
-                "WIS",
-                "CHA",
-                "21 (+5) 15 (+2) 22 (+6) 15 (+2) 16 (+3) 20 (+5)",
-                "Saving Throws Dex +6, Wis +7, Cha +9",
-                "Damage Immunities lightning, thunder",
-                "Senses darkvision 120 ft., passive Perception 13",
-                "Languages Auran",
-                "Challenge 11 (7,200 XP)",
-                "Elemental Demise. If the djinni dies, its body",
-                "disintegrates into a warm breeze, leaving behind only",
-                "equipment the djinni was wearing or carrying.",
-                "Innate Spellcasting. The djinni’s innate spellcasting",
-                "ability is Charisma (spell save DC 17, +9 to hit with spell",
-                "attacks). It can innately cast the following spells,",
-                "requiring no material components:",
-                "At will: detect evil and good, detect magic,",
-                "thunderwave",
-                "3/day each: create food and water (can create wine",
-                "instead of water), tongues, wind walk",
-                "1/day each: conjure elemental (air elemental only),",
-                "creation, gaseous form, invisibility, major image,",
-                "plane shift",
-                "Actions",
-                "Multiattack. The djinni makes three scimitar attacks.",
-                "Scimitar. Melee Weapon Attack: +9 to hit, reach 5 ft.,",
-                "one target. Hit: 12 (2d6 + 5) slashing damage plus 3",
-                "(1d6) lightning or thunder damage (djinni’s choice).",
-                "Create Whirlwind. A 5-­‐foot-­‐radius, 30-­‐foot-­‐tall cylinder",
-                "of swirling air magically forms on a point the djinni can",
-                "see within 120 feet of it. The whirlwind lasts as long as",
-                "the djinni maintains concentration (as if concentrating",
-                "on a spell). Any creature but the djinni that enters the",
-                "whirlwind must succeed on a DC 18 Strength saving",
-                "throw or be restrained by it. The djinni can move the",
-                "whirlwind up to 60 feet as an action, and creatures",
-                "restrained by the whirlwind move with it. The",
-                "whirlwind ends if the djinni loses sight of it.",
-                "A creature can use its action to free a creature",
-                "restrained by the whirlwind, including itself, by",
-                "succeeding on a DC 18 Strength check. If the check",
-                "succeeds, the creature is no longer restrained and",
-                "moves to the nearest space outside the whirlwind."
+                "SIRONA O'KEEFE",
+"Medium humanoid, chaotic light",
+"Armor Class 14 (Combat Suit)",
+"Hit Points 27 (6d8)",
+"Speed 30 ft.",
+"STR	DEX	CON	INT	WIS	CHA",
+"8 (-1)	16 (+3)	10 (+0)	19 (+4)	12 (+1)	14 (+2)",
+"Saving Throws Dex +6, Int +7",
+"Senses passive Perception 14",
+"Skills Deception +5, Insight +4, Perception +4, Persuasion +5, Piloting +10, Sleight of Hand +6, Technology +10",
+"Languages Galactic Basic, Huttese, Binary",
+"Challenge 5 (1800 XP)",
+"Bad Feeling. When Captain O'Keefe rolls for initiative, she can move up to her speed. This movement happens before the initiative order is determined. Once she has used this feature, she can’t use it again until she finishes a long rest.",
+"Cunning Action. Captain O'Keefe can take a bonus action on each of her turns in combat. This action can be used only to take the Dash, Disengage, or Hide action.",
+"Defiant. Captain O'Keefe can add a d4 to a skill check or saving throw, after rolling but before the outcome is known. She must then finish a short or long rest before she can use this feature again.",
+"Sneak Attack. Once per turn, Captain O'Keefe can deal an extra 3d6 damage to one creature she hits with an attack if she has advantage on the attack roll. The attack must use a finesse or a ranged weapon. She does not need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn’t incapacitated, and she does not have disadvantage on the attack roll.",
+"Techcasting (3/Rest). Captain O'Keefe is a 6th-level techcaster. Her techcasting ability is Intelligence (power save DC 15, +7 to hit with power attacks).",
+"At-will: Encrypted Message, Mending",
+"1st level: Detect Enhancement, Repair Droid, Tracker Droid Interface",
+"Uncanny Dodge. When an attacker that Captain O'Keefe can see hits her with an attack, she can use her reaction to halve the attack’s damage against her.",
+"ACTIONS",
+"Blaster Pistol. +6 to hit, range 40/160 ft., one target. Hit 6 (1d6+3) energy damage. Reload 12.",
+"Vibrodagger. Melee Weapon Attack: +6 to hit, reach 5ft., one target. Hit: 3 (1d4+3) kinetic damage.",
+"Hidden blade. Melee Weapon Attack: +6 to hit, reach 5ft., one target. Hit: 5 (1d4+3) kinetic damage."
+
             ];
 
             const statBlock = linesToAdd.join("\n");
