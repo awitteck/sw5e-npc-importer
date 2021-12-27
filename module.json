@@ -2,7 +2,7 @@
     "name": "sw5e-npc-importer",
     "title": "SW5e NPC Importer",
     "description": "Import monster and NPC statblocks for SW5e",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "author": "awitteck",
     "systems": [
         "sw5e"
