@@ -19,6 +19,7 @@
         "./templates/sbiWindow.html"
     ],
     "url": "https://github.com/awitteck/sw5e-npc-importer",
-    "manifest": "https://github.com/awitteck/sw5e-npc-importer/raw/main/module.json"
+    "manifest": "https://github.com/awitteck/sw5e-npc-importer/raw/main/module.json",
+    "download": "https://github.com/awitteck/sw5e-starship-importer/archive/main.zip"
 }
 
